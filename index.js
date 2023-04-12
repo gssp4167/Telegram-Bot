@@ -4,6 +4,8 @@ require('dotenv').config();
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
+
+try{
 bot.start((ctx)=>{
     const msg="Thanks for showing interest to know about me. You can try /help for commands";
     ctx.reply(msg);
@@ -45,3 +47,8 @@ bot.on('text', (ctx) => {
 });
 
 bot.launch();
+}
+catch(err)
+{
+    console.log("Error is "+ err);
+}
